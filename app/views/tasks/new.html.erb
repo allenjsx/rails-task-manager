@@ -1,0 +1,19 @@
+<h1>Tasks#new</h1>
+<p>Find me in app/views/tasks/new.html.erb</p>
+
+<%= form_for(@task) do |f| %>
+  <%= f.label "Task Name" %>
+  <%= f.text_field :name %> <br>
+  <br>
+  <%= f.label "Task Description" %>
+  <%= f.text_field :details, :size => 50%>
+  <%= f.submit %>
+<% end %>
+
+<!-- <form action="<%= tasks_path %>" method="post">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<input type="text" name="name" placeholder="Write the name of this task?">
+<input type="text" name="details" placeholder="Write a description of this task">
+<button>Create a task!</button>
+</form> -->
+

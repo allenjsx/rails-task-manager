@@ -1,0 +1,9 @@
+<h1>Tasks#edit</h1>
+<p>Find me in app/views/tasks/edit.html.erb</p>
+
+<form action="/tasks/<%= @task %>" method="post" value="patch">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<input type="text" name="name" value="<%= @task.name%>">
+<input type="text" name="details" placeholder="<%= @task.details%>">
+<button>Create a task!</button>
+</form>
