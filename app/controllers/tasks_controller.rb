@@ -13,19 +13,20 @@ class TasksController < ApplicationController
 
   def create
     task_params = params.require(:task).permit(:name, :details)
-    task = Task.new({ name: params[:name], details: params[:details] })
+    task = Task.new(task_params)
     task.save
     redirect_to tasks_path(task)
   end
 
   def edit
-
+    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
-    @task.update({ name: params[:name], details: params[:details] })
-    redirect_to tasks_path(@task)
+    task_params = params.require(:task).permit(:name, :details)
+    task = Task.find(params[:id])
+    task.update(task_params)
+    redirect_to tasks_path(task)
   end
 
   def destroy
